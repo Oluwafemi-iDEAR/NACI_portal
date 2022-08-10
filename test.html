@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>ICAN | Member's Portal</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/ican_logo.jpg" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File --> 
+  <link href="assets/css/mains.css" rel="stylesheet">
+
+  <style>
+    body{
+margin-top:20px;
+background-color: rgba(62, 73, 153, 0.4) !important;
+}
+.accordion-style .card {
+    background: transparent;
+    box-shadow: none;
+    margin-bottom: 15px;
+    margin-top: 0 !important;
+    border: none;
+}
+.accordion-style .card:last-child {
+    margin-bottom: 0;
+}
+.accordion-style .card-header {
+    border: 0;
+    background: none;
+    padding: 0;
+    border-bottom: none;
+}
+.accordion-style .btn-link {
+    color: #f99218;
+    position: relative;
+    display: block;
+    width: 100%;
+    text-align: left;
+    white-space: normal;
+    box-shadow: none;
+    padding: 15px 55px;
+    text-decoration: none;
+}
+.mx-auto {
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+.rounded {
+    border-radius: 0.25rem !important;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: top;
+}
+.accordion-style .btn-link:hover {
+    text-decoration: none;
+}
+.accordion-style .btn-link.collapsed {
+    color: #575a7b;
+}
+.accordion-style .btn-link.collapsed:after {
+    content: "+";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    font-size: 1rem;
+    color: #f99218;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-50%);
+    box-shadow: 8px 8px 30px 0 rgba(0, 0, 0, 0.12);
+}
+.accordion-style .btn-link:after {
+    content: "-";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    font-size: 1rem;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #3e4998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-50%);
+    box-shadow: 8px 8px 30px 0 rgba(0, 0, 0, 0.12);
+}
+.accordion-style .card-body {
+    padding-top: 0px;
+    padding-left: 3.5rem;
+    padding-bottom: 0;
+}
+.accordion-style .card-body:before {
+    position: absolute;
+    content: "";
+    border-style: dashed;
+    border-width: 0 0 0 1.2px;
+    border-color: #f99218;
+    left: 20px;
+    top: 0;
+    z-index: 1;
+    bottom: 0;
+}
+@media screen and (max-width: 767px) {
+    .accordion-style .btn-link {
+        padding: 15px 40px 15px 55px;
+    }
+}
+@media screen and (max-width: 575px) {
+    .accordion-style .btn-link {
+        padding: 15px 30px 15px 55px;
+    }
+}
+/* Portal effect */
+.portal {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin: 0 5px;
+  position: relative;
+}
+
+.portal::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  border-radius: 50%;
+  z-index: -1;
+  animation: ripple 1.5s ease-out infinite;
+}
+
+.portal:first-child {
+  background-color: #ff414d;
+}
+
+.portal:first-child::before {
+  animation-delay: 0.2s;
+}
+
+.portal:nth-child(2) {
+  background-color: #ff7a00;
+  transform: scale(0.9);
+}
+
+.portal:nth-child(2)::before {
+  animation-delay: 0.4s;
+}
+
+.portal:nth-child(3) {
+  background-color: #28df99;
+  transform: scale(0.8);
+}
+
+.portal:nth-child(3)::before {
+  animation-delay: 0.6s;
+}
+
+.portal:nth-child(4) {
+  background-color: #81b214;
+  transform: scale(0.7);
+}
+
+.portal:nth-child(4)::before {
+  animation-delay: 0.8s;
+}
+
+.portal:last-child {
+  background-color: #f09ae9;
+  transform: scale(0.6);
+}
+
+.portal:last-child::before {
+  animation-delay: 1s;
+}
+
+@keyframes ripple {
+  from {
+    opacity: 1;
+    transform: scale(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(3);
+  }
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <section id="topbar" class="topbar d-flex align-items-center">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i>
+        <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
+      </div>
+      <div class="social-links d-none d-md-flex align-items-center">
+        <a href="https://twitter.com/ICAN_NGR" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="https://www.facebook.com/pages/The-Institute-of-Chartered-Accountants-of-Nigeria-ICAN/408218229260845" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/ican_ng/" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://ng.linkedin.com/in/ican1965" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+        <a href="https://www.youtube.com/channel/UCtYFvS9h6iYkaxUh4fcrxvQ" class="youtube"><i class="bi bi-youtube"></i></i></a>
+      </div>
+    </div>
+  </section>
+  <!-- End Top Bar -->
+
+  <header id="header" class="header d-flex align-items-center">
+
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="assets/img/ican_logo.png" alt="">
+        <!-- <h1>Impact<span>.</span></h1> -->
+      </a>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                    <ul>
+                      <li><a href="#">Deep Drop Down 1</a></li>
+                      <li><a href="#">Deep Drop Down 2</a></li>
+                      <li><a href="#">Deep Drop Down 3</a></li>
+                      <li><a href="#">Deep Drop Down 4</a></li>
+                      <li><a href="#">Deep Drop Down 5</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+    </div>
+  </header><!-- End Header -->
+  <!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero">
+    <div class="container position-relative">
+      <div class="row gy-5" data-aos="fade-in">
+        <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
+          <h2>Welcome to <span>ICAN MEMBERS' PORTAL</span></h2>
+          <p>Sed autem laudantium dolores. Voluptatem itaque ea consequatur eveniet. Eum quas beatae cumque eum quaerat.</p>
+          <div class="d-flex justify-content-center justify-content-lg-start">
+            <a href="#about" class="btn-get-started">Get Started</a>
+            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2">
+          <img src="assets/img/archway-2889665_640.png" class="img-fluid" height="" alt="" data-aos="zoom-out" data-aos-delay="100">
+        </div>
+      </div>
+    </div>
+
+    <!--  -->
+
+    </div>
+  </section>
+  <!-- End Hero Section -->
+
+  <main id="main">
+
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="mx-auto text-center">
+                    <div>
+                        <span class="portal"></span>
+                        <span class="portal"></span>
+                        <span class="portal"></span>
+                        <span class="portal"></span>
+                        <span class="portal"></span>
+                      </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="ps-lg-6 ps-xl-10 w-lg-90">
+                    <div class="mb-4">
+                        <div class="main-title title-left">Getting a Loan<span class="line-left"></span></div>
+                        <h2 class="w-90">The greater part of the people trust on us</h2>
+                    </div>
+                    <p class="mb-4">
+                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+                    </p>
+    
+    
+    
+                    <div id="accordion" class="accordion-style">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Profile Update</button>
+                                </h5>
+                            </div>
+                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-bs-parent="#accordion" style="">
+                                <div class="card-body position-relative">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.There are many variations
+                                    of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Conference Registration</button>
+                                </h5>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordion">
+                                <div class="card-body position-relative">
+                                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here,
+                                    content here', making it look like readable English.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Fellowship Application</button>
+                                </h5>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-bs-parent="#accordion">
+                                <div class="card-body position-relative">
+                                    Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident,
+                                    sometimes on purpose (injected humour and the like).
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingFour">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Financial Status</button>
+                                </h5>
+                            </div>
+                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-bs-parent="#accordion">
+                                <div class="card-body position-relative">
+                                    It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingFive">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">Licence/Firm Registration</button>
+                                </h5>
+                            </div>
+                            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-bs-parent="#accordion">
+                                <div class="card-body position-relative">
+                                    All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, Making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to
+                                    generate Lorem Ipsum which looks reasonable.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingSix">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">MCPD / Faculty</button>
+                                </h5>
+                            </div>
+                            <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-bs-parent="#accordion">
+                                <div class="card-body position-relative">
+                                    All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, Making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to
+                                    generate Lorem Ipsum which looks reasonable.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingSeven">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">Pay ICAN</button>
+                                </h5>
+                            </div>
+                            <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-bs-parent="#accordion">
+                                <div class="card-body position-relative">
+                                    All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, Making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to
+                                    generate Lorem Ipsum which looks reasonable.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingEight">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">Application Form</button>
+                                </h5>
+                            </div>
+                            <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-bs-parent="#accordion">
+                                <div class="card-body position-relative">
+                                    All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, Making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to
+                                    generate Lorem Ipsum which looks reasonable.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    
+    
+    </div>
+    </div>
+    </div>
+    </div>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+
+  
+  <div class="col-md-6 justify-content-center text-white img-responsive" style="margin-bottom: 0.1em !important; margin-top:0.3em">
+    Copyright ©
+    <script type="text/javascript">
+        var year = new Date();
+        document.write(year.getFullYear());
+    </script>
+    <a class="text-white" href="https://icanig.org/">ICAN</a>. All rights reserved.
+</div>
+  <!-- End Footer -->
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- <div id="preloader"></div> -->
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
